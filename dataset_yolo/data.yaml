@@ -1,6 +1,7 @@
-path: D:\Projects\LabelStudioML\dataset_yolo
+path: .
 train: images/train
 val: images/val
 test: images/test
+
 names:
   0: pelak

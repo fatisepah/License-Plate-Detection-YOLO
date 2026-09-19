@@ -2,13 +2,14 @@ from pathlib import Path
 import torch
 from ultralytics import YOLO
 
-DATA_YAML = Path(r"D:\Projects\LabelStudioML\dataset_yolo\data.yaml")
+BASE_DIR = Path(__file__).resolve().parent
 
-RUNS_DIR = Path(r"D:\Projects\LabelStudioML\runs")
+DATA_YAML = BASE_DIR / "dataset_yolo" / "data.yaml"
+RUNS_DIR = BASE_DIR / "runs"
 
 MODEL_NAME = "yolo11n.pt"
 
-EPOCHS = 100
+EPOCHS = 200
 IMAGE_SIZE = 640
 BATCH_SIZE = 8
 
@@ -34,16 +35,12 @@ def main():
         workers=0,
         project=str(RUNS_DIR),
         name="yolo_training",
-        # ---------------------
-        # Augmentation
-        # ---------------------
         hsv_h=0.015,
         hsv_s=0.5,
         hsv_v=0.4,
         degrees=5.0,
         translate=0.10,
         scale=0.40,
-        shear=2.0,
         perspective=0.0005,
         flipud=0.0,
         fliplr=0.5,
